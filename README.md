@@ -1,9 +1,9 @@
-🐍 Python Exception Handling & Debugging Assignment
+# 🐍 Python Exception Handling & Debugging Assignment
 A beginner-level Python assignment covering exception handling and debugging techniques — with theory explanations, real-life examples, and working code programs.
 
 
-📚 Topics Covered
-Section A — Exception Handling
+# 📚 Topics Covered
+## Section A — Exception Handling
 
 What is an exception and why it occurs
 Real-life examples of exceptions
@@ -13,7 +13,7 @@ Handling FileNotFoundError when opening a file
 Using try–except–else to add two numbers
 Using finally block to always run cleanup code
 
-Section B — Debugging Techniques
+## Section B — Debugging Techniques
 
 What is debugging and why it matters
 Three types of Python errors with 5 examples each:
