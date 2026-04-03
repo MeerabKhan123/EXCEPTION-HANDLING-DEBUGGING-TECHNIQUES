@@ -1,0 +1,243 @@
+===========================================================
+         SECTION A: EXCEPTION HANDLING
+============================================================
+
+--- A.Q1: What is an Exception? ---
+
+An exception is an error that occurs during the execution of
+a program. It stops the normal flow of the program.
+
+Unlike syntax errors (which are caught before running),
+exceptions happen at runtime - while the program is running.
+
+Python has many built-in exceptions like:
+  - ZeroDivisionError
+  - ValueError
+  - FileNotFoundError
+  - TypeError
+  - IndexError
+
+
+--- A.Q2: Two Real-Life Examples ---
+
+Example 1 - ATM Machine:
+  You enter the wrong PIN 3 times.
+  The machine raises an exception (blocks your card).
+  Without exception handling, the ATM would crash.
+
+Example 2 - Calculator App:
+  User tries to divide a number by zero.
+  Mathematically impossible, so a ZeroDivisionError occurs.
+  The app shows "Cannot divide by zero" instead of crashing.
+
+
+--- A.Q3: ZeroDivisionError Handling ---
+Error: Cannot divide by zero!
+
+Successful division:
+10 / 2 = 5.0
+
+--- A.Q4: ValueError Handling ---
+User entered: 'abc'
+Error: Invalid input! Please enter a valid number.
+
+With valid input:
+User entered: '25'
+You entered: 25
+
+--- A.Q5 & Q6: FileNotFoundError Handling ---
+File contents: Welcome to Java File Handling
+Learning Java is fun!
+
+After creating the file:
+File contents: Hello from data.txt!
+
+--- A.Q7: try-except-else Example ---
+User entered: 15 and 25
+Sum = 40
+(else block ran because no error occurred)
+
+With invalid input:
+User entered: 10 and xyz
+Error: Please enter valid numbers!
+
+--- A.Q8: finally Block Demonstration ---
+Case 1 - Division by zero:
+Error: Cannot divide by zero!
+Program finished.
+
+Case 2 - Successful division:
+Result: 5.0
+Program finished.
+
+NOTE: The 'finally' block ALWAYS runs,
+whether an exception occurred or not.
+
+============================================================
+         SECTION B: DEBUGGING TECHNIQUES
+============================================================
+
+--- B.Q1: What is Debugging? ---
+
+Debugging is the process of finding and fixing errors (bugs)
+in a program so that it runs correctly.
+
+The word 'bug' comes from 1947 when a real moth was found
+stuck inside a computer causing it to malfunction.
+
+Debugging involves:
+  - Finding where the error is
+  - Understanding why it happens
+  - Fixing the error
+  - Testing to make sure it is fixed
+
+
+--- B.Q2: Why is Debugging Important? ---
+
+1. Finds errors before they cause bigger problems
+2. Makes programs run correctly and efficiently
+3. Helps programmers understand their own code better
+4. Prevents crashes in real-world applications
+5. Saves time in the long run - small bugs found early
+   are easier to fix than big bugs found late
+
+
+--- B.Q3: Three Types of Errors ---
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TYPE 1: SYNTAX ERROR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A syntax error occurs when Python cannot understand the
+code because of wrong grammar or spelling mistakes.
+These are caught BEFORE the program runs.
+
+Example 1 - Missing colon:
+  if x > 5       ← should be: if x > 5:
+      print("hi")
+
+Example 2 - Missing closing bracket:
+  print("Hello"  ← should be: print("Hello")
+
+Example 3 - Wrong indentation:
+  def greet():
+  print("Hi")    ← should be indented inside function
+
+Example 4 - Misspelled keyword:
+  whille True:   ← should be: while True:
+
+Example 5 - Missing quotes:
+  name = John    ← should be: name = "John"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TYPE 2: RUNTIME ERROR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A runtime error occurs WHILE the program is running.
+The code looks correct but fails during execution.
+
+Example 1 - ZeroDivisionError:
+  x = 10 / 0    ← cannot divide by zero
+
+Example 2 - FileNotFoundError:
+  open("ghost.txt", "r")  ← file does not exist
+
+Example 3 - ValueError:
+  int("hello")  ← cannot convert text to integer
+
+Example 4 - IndexError:
+  my_list = [1, 2, 3]
+  print(my_list[10])  ← index 10 does not exist
+
+Example 5 - NameError:
+  print(age)    ← variable 'age' was never defined
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TYPE 3: LOGICAL ERROR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A logical error means the program runs without crashing
+but gives WRONG results. No error message is shown.
+These are the hardest to find!
+
+Example 1 - Wrong operator:
+  area = length + width   ← should be: length * width
+
+Example 2 - Wrong condition:
+  if age > 18:            ← should be: if age >= 18:
+      print("Adult")      ← misses people exactly 18
+
+Example 3 - Off by one error:
+  for i in range(1, 10):  ← misses 10, should be range(1, 11)
+
+Example 4 - Wrong average formula:
+  avg = a + b / 2         ← should be: avg = (a + b) / 2
+
+Example 5 - Subtraction instead of addition:
+  total = price - tax     ← should be: total = price + tax
+
+
+--- B.Q4: Identify the Error ---
+
+Code: print(10 / 0)
+
+Error Type: RUNTIME ERROR (ZeroDivisionError)
+
+Why it occurs:
+  - The syntax is correct (Python can read it)
+  - But during execution, Python tries to divide 10 by 0
+  - Division by zero is mathematically impossible
+  - So Python raises a ZeroDivisionError at runtime
+
+Error message you would see:
+  ZeroDivisionError: division by zero
+
+Demonstration:
+Caught Error: division by zero
+
+--- B.Q5: Print Debugging ---
+[DEBUG] Raw input received: '42'
+[DEBUG] After int() conversion: 42
+[DEBUG] Type of variable: <class 'int'>
+[DEBUG] After multiplying by 2: 84
+
+Final Result: 84
+
+NOTE: Print debugging means adding print() statements
+at different points to check what value a variable holds.
+This helps find where the bug is.
+
+
+--- B.Q6: Read the Error Message ---
+
+Code: x = int("abc")
+
+Error Type: RUNTIME ERROR (ValueError)
+
+Explanation:
+  - int() tries to convert the string "abc" into an integer
+  - "abc" contains letters, not digits
+  - Python cannot convert letters to a number
+  - So it raises a ValueError
+
+Error message you would see:
+  ValueError: invalid literal for int() with base 10: 'abc'
+
+What it means:
+  - 'invalid literal' = the value given is not valid
+  - 'for int() with base 10' = we are using decimal numbers
+  - "'abc'" = this is the value that caused the problem
+
+Demonstration:
+Caught Error: invalid literal for int() with base 10: 'abc'
+
+--- B.Q7: Handle ValueError and ZeroDivisionError ---
+Test 1 - Invalid input ('abc', '5'):
+Error: Invalid input! Please enter numbers only.
+
+Test 2 - Division by zero ('10', '0'):
+Error: Cannot divide by zero!
+
+Test 3 - Valid input ('20', '4'):
+Result: 20 / 4 = 5.0
+
+============================================================
+           ASSIGNMENT COMPLETE!
+============================================================
